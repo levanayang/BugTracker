@@ -28,6 +28,10 @@ namespace BugTracker
             services.AddControllersWithViews();
             services.AddDbContext<MvcMovieContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+            // Registers Bug ticket database context with dependency injection (DI)
+            services.AddDbContext<TicketContext>(options =>
+                // Fetches connection string for ticket database from appsettings.json
+                options.UseSqlServer(Configuration.GetConnectionString("TicketContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +58,7 @@ namespace BugTracker
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Tickets}/{action=Index}/{id?}");
             });
         }
     }
