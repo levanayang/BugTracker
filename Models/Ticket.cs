@@ -7,8 +7,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTracker.Models
 {
-    public enum Status { Open, Resolved, InProgress }
-    public enum Priority { High, Medium, Low}
+    public enum Status { 
+        [Display(Name = "Open")]
+        Open, 
+        [Display(Name = "In Progress")]
+        InProgress,
+        [Display(Name = "Resolved")]
+        Resolved
+    }
+    public enum Priority
+    {
+        [Display(Name = "Low")]
+        Low,
+        [Display(Name = "Medium")]
+        Medium,
+        [Display(Name = "High")]
+        High
+    }
 
     public class Ticket
     {
@@ -16,6 +31,7 @@ namespace BugTracker.Models
         public int Id { get; set; }
         [Display(Name = "Priority")]
         public Priority TicketPriority { get; set; }
+        [Required]
         public string Title { get; set; }
         [Display(Name = "Status")]
         public Status TicketStatus { get; set; }
