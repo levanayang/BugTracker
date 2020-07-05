@@ -49,6 +49,7 @@ namespace BugTracker.Models
 
         // Details
         public string Author { get; set; }
+        [MaxLength(8000)]
         public string Description { get; set; }
     }
 }

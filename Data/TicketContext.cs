@@ -15,19 +15,6 @@ namespace BugTracker.Data
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-
-        //    modelBuilder.Entity<Ticket>(entity =>
-        //    {
-        //        entity.Property(e => e.TicketStatus)
-        //            .HasConversion(x => (int)x, x => (Status)x);
-
-        //        entity.Property(e => e.TicketPriority)
-        //            .HasConversion(x => (int)x, x => (Priority)x);
-        //    });
-        //}
-
         public DbSet<Ticket> Ticket { get; set; }
     }
 }

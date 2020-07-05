@@ -59,6 +59,8 @@ namespace BugTracker.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(ticket);
+                // add today's date as the open date
+                ticket.OpenDate = DateTime.Today;
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
